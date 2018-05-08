@@ -1,3 +1,5 @@
+
+
 /*TABLA DE CAMPUS*/
 CREATE TABLE Campus(
     Campus_Location VARCHAR2(100),
@@ -6,6 +8,7 @@ CREATE TABLE Campus(
     Campus_Fax INTEGER,
     Campus_Head VARCHAR2(100)
 )
+
 
 /*TIPO OBJETO DE DEPARTAMENTO*/
 CREATE OR REPLACE TYPE Departament_O AS OBJECT(
@@ -29,6 +32,6 @@ CREATE TABLE Faculty OF Faculty_O(
     PRIMARY KEY (Fac_ID))
     NESTED TABLE Departament STORE AS Departament_Table
     
-
+DROP TABLE Faculty;
 
        
