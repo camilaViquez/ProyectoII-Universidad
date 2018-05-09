@@ -32,6 +32,11 @@ CREATE TABLE Faculty OF Faculty_O(
     PRIMARY KEY (Fac_ID))
     NESTED TABLE Departament STORE AS Departament_Table
     
+/*CLUSTERING*/
+
+
+
+
 DROP TABLE Faculty;
 
        
