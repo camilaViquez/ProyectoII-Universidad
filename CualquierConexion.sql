@@ -1,3 +1,5 @@
+
+
 /*TABLA DE CAMPUS*/
 CREATE TABLE Campus(
     Campus_Location VARCHAR2(100),
@@ -6,6 +8,7 @@ CREATE TABLE Campus(
     Campus_Fax INTEGER,
     Campus_Head VARCHAR2(100)
 )
+
 
 /*TIPO OBJETO DE PROFESOR*/
 CREATE OR REPLACE TYPE Professor_O FORCE AS OBJECT
@@ -173,6 +176,10 @@ CREATE TABLE Takes(
         FOREIGN KEY(Subject)
         REFERENCES Subject(Subj_ID)
     
+
     )
+
+
+DROP TABLE Faculty;
 
 
