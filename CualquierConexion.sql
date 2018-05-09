@@ -7,8 +7,6 @@ CREATE TABLE Campus(
     Campus_Head VARCHAR2(100)
 )
 
-/**/
-
 /*TIPO OBJETO DE DEPARTAMENTO*/
 CREATE OR REPLACE TYPE Departament_O AS OBJECT(
     Dept_ID VARCHAR2(100),
@@ -30,7 +28,49 @@ CREATE OR REPLACE TYPE Faculty_O AS OBJECT(
 CREATE TABLE Faculty OF Faculty_O(    
     PRIMARY KEY (Fac_ID))
     NESTED TABLE Departament STORE AS Departament_Table
+
+
+
+
+
+/*TABLA DE GRADOS*/
+CREATE TABLE Degree(
+    Deg_ID VARCHAR2(20),
+    Deg_Name VARCHAR2(50),
+    Deg_Length INTEGER,
+    Deg_Prereq VARCHAR2(50),
+    Fac_ID INTEGER,
+    PRIMARY KEY(Deg_ID),
+    CONSTRAINT fk_Fac_ID
+        FOREIGN KEY(Fac_ID)
+        REFERENCES Faculty(Fac_ID))
+
+/*TIPO DE OBJETO PERSONA*/
+CREATE OR REPLACE TYPE Person AS OBJECT(
+    Pers_ID INTEGER,
+    Pers_Surname VARCHAR2(50),
+    Pers_Fname VARCHAR2(50),
+    Pers_Title VARCHAR2(50),
+    Pers_Address VARCHAR2(100),
+    Pers_Phone VARCHAR2(20),
+    Pers_Postcode VARCHAR2(10),
+    Campus_Location VARCHAR2(100))
+    NOT INSTANTIABLE NOT FINAL;
+
+/*TIPO DE OBJETO STAFF HEREDADO DE PERSONA*/
+CREATE OR REPLACE TYPE Staff UNDER Person(
+    Bld_ID VARCHAR2(20),
+    Off_No VARCHAR2(30),
+    Staff_Type VARCHAR2(20))
+    NOT INSTANTIABLE NOT FINAL;
+
+/*TIPO DE OBJETO ESTUDIANTE HEREDADO DE PERSONA*/
+CREATE OR REPLACE TYPE Student FORCE UNDER Person(
+    Year Integer)
     
-
-
-       
+/*TIPO DE OBJETO PERSONA*/
+CREATE OR REPLACE TYPE Admin FORCE UNDER Staff(
+    Admin_Title VARCHAR2(50) NOT NULL,
+    Comp_Skills VARCHAR2(30),
+    Office_Skills 
+)
