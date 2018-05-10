@@ -164,14 +164,14 @@ CREATE TABLE Enrolls_In(
     Student INTEGER,
     Degree VARCHAR2(20),
     
-<<<<<<< HEAD
-/*CLUSTERING*/
+    CONSTRAINT fk_Student
+        FOREIGN KEY(Student)
+        REFERENCES Person_T(Pers_ID),
 
-
-=======
     CONSTRAINT fk_degree
         FOREIGN KEY(Degree)
         REFERENCES Degree(Deg_ID))
+
 
 CREATE TABLE Takes(
     Student INTEGER,
@@ -180,11 +180,12 @@ CREATE TABLE Takes(
     
     CONSTRAINT fk_Subject
         FOREIGN KEY(Subject)
-        REFERENCES Subject(Subj_ID)
-    
+        REFERENCES Subject(Subj_ID),
+    CONSTRAINT fk_Student
+        FOREIGN KEY(Student)
+        REFERENCES Person_T(Pers_ID))
+        
 
-    )
->>>>>>> develop
 
 CREATE TABLE Person_T OF Person(
     PRIMARY KEY(PERS_ID)
