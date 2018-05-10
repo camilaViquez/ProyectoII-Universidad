@@ -56,7 +56,8 @@ CREATE OR REPLACE PROCEDURE Update_Campus(
     Camp_Head IN Campus.Campus_Head%TYPE)
 is
 BEGIN
-UPDATE Campus SET Campus_Location = Camp_log,
+UPDATE Campus SET 
+    Campus_Location = Camp_log,
     Campus_Address = Camp_Add,
     Campus_Phone = Camp_Phone,
     Campus_Fax = Camp_Fax,
@@ -84,8 +85,9 @@ END;
 
 
 /*SELECT all*/
-CREATE OR REPLACE PROCEDURE Read_Campus IS
+CREATE OR REPLACE PROCEDURE Read_Campus(c out SYS_REFCURSOR)
+IS 
 BEGIN
-    SELECT * FROM Campus;
-
-    END;
+open c for 
+    SELECT * FROM Campus
+END;
