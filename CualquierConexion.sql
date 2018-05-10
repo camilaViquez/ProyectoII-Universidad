@@ -76,6 +76,7 @@ CREATE TABLE Faculty OF Faculty_O(
     (NESTED TABLE School_Prof STORE AS School_Prof_Table)
     NESTED TABLE Research_Centre STORE AS Research_Centre_Table
 
+
 /*TABLA DE GRADOS*/
 CREATE TABLE Degree(
     Deg_ID VARCHAR2(20),
@@ -179,6 +180,9 @@ CREATE TABLE Takes(
 
     )
 
+CREATE TABLE Person_T OF Person(
+    PRIMARY KEY(PERS_ID)
+)
 
 DROP TABLE Faculty;
 
