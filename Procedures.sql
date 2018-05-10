@@ -88,6 +88,7 @@ END;
 CREATE OR REPLACE PROCEDURE Read_Campus(c out SYS_REFCURSOR)
 IS 
 BEGIN
+
 open c for 
     SELECT * FROM Campus
 END;
