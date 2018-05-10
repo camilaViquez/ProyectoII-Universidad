@@ -164,6 +164,11 @@ CREATE TABLE Enrolls_In(
     Student INTEGER,
     Degree VARCHAR2(20),
     
+<<<<<<< HEAD
+/*CLUSTERING*/
+
+
+=======
     CONSTRAINT fk_degree
         FOREIGN KEY(Degree)
         REFERENCES Degree(Deg_ID))
@@ -179,6 +184,7 @@ CREATE TABLE Takes(
     
 
     )
+>>>>>>> develop
 
 CREATE TABLE Person_T OF Person(
     PRIMARY KEY(PERS_ID)
